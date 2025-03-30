@@ -1,14 +1,4 @@
-// const listaUsuarios = [];
 
-// let boton = document.getElementById("primer-btn");
-
-// boton.addEventListener("click", function agregarUsuario(){
-//     let idUsuario = prompt("Para registrarse ingrese su ID: ");
-//     let passUsuario = prompt("Ingrese una contraseña: ");
-//     let usuario = ` ID: ${idUsuario} - PASS: ${passUsuario}`;
-//     listaUsuarios.push(usuario);
-//     console.log(listaUsuarios);
-// });
 
 // Se declara la constante boton y se le asigna una 
 // función flecha que se ejecutara al hacerle click.
@@ -24,80 +14,78 @@ boton.addEventListener("click", ()=>{
         // generada anteriormente.
         let seguir = true;
         while (seguir === true){
-            let productoSolicitado = prompt("¿Qué le gustaría ordenar?");
-            productoSolicitado.toUpperCase();
-            
-            let listaObjetivo = null;
-            let lista = [];
-            for (lista in listaDeListas){
-                let productoListado = lista.find(producto => producto.nombre === productoSolicitado);
-                if (productoListado){
-                    listaObjetivo = lista;
-                    productoListado = producto;
-                    break;
-                }
-            }
+            let tipoDeProducto = prompt("¿Qué le gustaría ordenar?\n1. Bebidas\n2. Platillos\n3. Aderezos");
+            tipoDeProducto.toUpperCase();
+            switch (tipoDeProducto){
 
-            console.log(producto, lista)
-
-            // Comienza el switch
-            switch(productoSolicitado){
-                // Primer case
-                case productoSolicitado in listaObjetivo.nombre:
-                    let cantidadSolicitada = parseInt(prompt("¿Cuántos quiere? Ingrese un valor numérico"));
-                    if (cantidadSolicitada > 0){
-                        let contador = 0;
-                        do {
-                            orden.pedido.push(productoSolicitado);
-                            contador += 1;
+                // En caso de pedir BEBIDAS
+                case tipoDeProducto == "1" || tipoDeProducto == "BEBIDAS":
+                    let productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
+                    productoSolicitado.toUpperCase();
+                    for (producto in listaBebidas){
+                        let productoListado = listaBebidas.find(producto => producto.nombre === productoSolicitado);
+                        if (productoListado !== undefined){
+                            productoSolicitado = productoListado;
+                            break;
+                        }else{
+                            console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
+                            alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
                         }
-                        while (contador < cantidadSolicitada);
-                    }else{
-                        console.log("Pida al menos 1");
-                        alert("Pida al menos 1");
-                    }
-                    break;
 
-                // Segundo case
-                case productoSolicitado in listaBebidas.nombre:
-                    cantidadSolicitada = parseInt(prompt("¿Cuántas quiere? Ingrese un valor numérico"));
-                    if (cantidadSolicitada > 0){
-                        let contador = 0;
-                        do {
-                            orden.pedido.push(productoSolicitado);
-                            contador += 1;
-                        }
-                        while (contador < cantidadSolicitada);
-                    }else{
-                        console.log("Pida al menos 1");
-                        alert("Pida al menos 1");
                     }
-                    break;
 
-                // Tercer case
-                case productoSolicitado in listaAderezos.nombre:
-                    cantidadSolicitada = parseInt(prompt("¿Cuántos quiere? Ingrese un valor numérico"));
-                    if (cantidadSolicitada > 0){
-                        let contador = 0;
-                        do {
-                            orden.pedido.push(productoSolicitado);
-                            contador += 1;
+                // En caso de pedir PLATILLOS
+                case tipoDeProducto == "2" || tipoDeProducto == "PLATILLOS":
+                    productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
+                    productoSolicitado.toUpperCase();
+                    for (producto in listaPlatillos){
+                        let productoListado = listaPlatillos.find(producto => producto.nombre === productoSolicitado);
+                        if (productoListado !== undefined){
+                            productoSolicitado = productoListado;
+                            break;
+                        }else{
+                            console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
+                            alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
                         }
-                        while (contador < cantidadSolicitada);
-                    }else{
-                        console.log("Pida al menos 1");
-                        alert("Pida al menos 1");
                     }
-                    break;
+
+                // En caso de pedir ADEREZOS
+                case tipoDeProducto == "3" || tipoDeProducto == "ADEREZOS":
+                    productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
+                    productoSolicitado.toUpperCase();
+                    for(producto in listaAderezos){
+                        let productoListado = listaAderezos.find(producto => producto === productoSolicitado);
+                        if (productoListado !== undefined){
+                            productoSolicitado = productoListado;
+                            break;
+                        }else{
+                            console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
+                            alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
+                        }
+                    }
                 default:
-                    console.log("El producto solicitado no se encuentra dentro del menú.");
-                    alert("El producto solicitado no se encuentra dentro del menú.");
+                    console.log("Porfavor seleccione una opción válida (por ejemplo 1 o Bebidas)");
+                    alert("Porfavor seleccione una opción válida (por ejemplo 1 o Bebidas)");
             }
+
+            // Ligero cambio para legibilidad (cuantos/cuantas)
+            if (productoSolicitado.tipo == "BEBIDA"){
+                let cantidadSolicitada = parseInt(prompt("¿Cuántas quiere?, Ingrese un valor numérico"));
+                orden.agregarProducto(productoSolicitado, cantidadSolicitada);
+            }else{
+                let cantidadSolicitada = parseInt(prompt("¿Cuántos quiere pedir?, Ingrese un valor numérico"));
+                orden.agregarProducto(productoSolicitado, cantidadSolicitada);
+            }
+
             seguir = confirm("¿Desea continuar agregando productos a su orden?");
         };
+
+
         const factura = new Factura(orden.pedido);
         factura.calcularPrecio();
-    }else{
+    }
+    
+    else{
         console.log("Si cambias de parecer vuelve a presionar el botón ;)");
         alert("Si cambias de parecer vuelve a presionar el boton ;)");
     }
@@ -122,17 +110,9 @@ const listaAderezos = [{"tipo": "ADEREZO", "nombre": "SABOR-A!", "precio": 5},
                        {"tipo": "ADEREZO", "nombre": "MAYONESO", "precio": 5},
                        {"tipo": "ADEREZO", "nombre": "ALSAS", "precio": 5}];
 
-const listaDeListas = [listaPlatillos, listaBebidas, listaAderezos];
+// Declaración y asignación de la lista que contendrá los pedidos realizados.
+// Tiene como finalidad llevar un registro de los pedidos.                       
 const listaPedidos = [];
-
-// // Declaración de la clase Producto
-// class Producto{
-//     constructor(tipo, nombre, precio){
-//         this.tipo = tipo;
-//         this.nombre = nombre;
-//         this.precio = precio;
-//     }
-// }
 
 // Declaración de la clase Pedido
 class Pedido{
@@ -141,9 +121,20 @@ class Pedido{
     }
 
     /* Agrega un producto al pedido */
-    agregarProducto(producto) {
-        this.pedido.push(producto);
+    agregarProducto(producto, cantidad){
+        if (cantidad > 0){
+            let contador = 0;
+            do {
+                this.pedido.push(producto);
+                contador += 1;
+            }
+            while (contador < cantidad);
+        }else{
+            console.log("Pida al menos 1");
+            alert("Pida al menos 1");
+        }
     }
+
     /* Elimina un producto del pedido */
     eliminarProducto(producto){
         if (producto in this.pedido)
@@ -177,15 +168,3 @@ class Factura{
         console.log(`${this.pedido}\n`, ` Importe final: ${importe}\nDescuento aplicado: ${descuento}`);
     }
 }
-
-// function mostrarImporte(){
-//     let importe = 350;
-//     let descuento = 0.05;
-//     console.log(importe);
-//     console.log(importe -= importe * descuento);
-//     console.log(importe);
-// }
-
-// mostrarImporte();
-
-
