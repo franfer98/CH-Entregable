@@ -15,66 +15,63 @@ boton.addEventListener("click", ()=>{
         let seguir = true;
         while (seguir === true){
             let tipoDeProducto = prompt("¿Qué le gustaría ordenar?\n1. Bebidas\n2. Platillos\n3. Aderezos");
-            tipoDeProducto.toUpperCase();
+            tipoDeProducto = tipoDeProducto.toUpperCase();
             switch (tipoDeProducto){
 
                 // En caso de pedir BEBIDAS
-                case tipoDeProducto == "1" || tipoDeProducto == "BEBIDAS":
-                    let productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
-                    productoSolicitado.toUpperCase();
-                    for (producto in listaBebidas){
-                        let productoListado = listaBebidas.find(producto => producto.nombre === productoSolicitado);
+                case "BEBIDAS":
+                case "1":
+                    var productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
+                    productoSolicitado = productoSolicitado.toUpperCase();
+                    var productoListado = listaBebidas.find(producto => producto.nombre === productoSolicitado);
                         if (productoListado !== undefined){
                             productoSolicitado = productoListado;
+                            var cantidadSolicitada = parseInt(prompt("¿Cuántas quiere?, Ingrese un valor numérico"));
+                            orden.agregarProducto(productoSolicitado, cantidadSolicitada);
                             break;
                         }else{
                             console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
                             alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
+                            break;
                         }
-
-                    }
 
                 // En caso de pedir PLATILLOS
-                case tipoDeProducto == "2" || tipoDeProducto == "PLATILLOS":
-                    productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
-                    productoSolicitado.toUpperCase();
-                    for (producto in listaPlatillos){
-                        let productoListado = listaPlatillos.find(producto => producto.nombre === productoSolicitado);
-                        if (productoListado !== undefined){
-                            productoSolicitado = productoListado;
-                            break;
-                        }else{
-                            console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
-                            alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
-                        }
+                case "PLATILLOS":
+                case "2":
+                   var productoSolicitado = prompt("Ingrese el nombre del platillo");
+                    productoSolicitado = productoSolicitado.toUpperCase();
+                    var productoListado = listaPlatillos.find(producto => producto.nombre === productoSolicitado);
+                    if (productoListado !== undefined){
+                        productoSolicitado = productoListado;
+                        var cantidadSolicitada = parseInt(prompt("¿Cuántos quiere pedir?, Ingrese un valor numérico"));
+                        orden.agregarProducto(productoSolicitado, cantidadSolicitada);
+                        break;
+                    }else{
+                        console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
+                        alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
+                        break;
                     }
 
                 // En caso de pedir ADEREZOS
-                case tipoDeProducto == "3" || tipoDeProducto == "ADEREZOS":
-                    productoSolicitado = prompt("Ingrese el nombre de la bebida que quiere");
-                    productoSolicitado.toUpperCase();
-                    for(producto in listaAderezos){
-                        let productoListado = listaAderezos.find(producto => producto === productoSolicitado);
-                        if (productoListado !== undefined){
-                            productoSolicitado = productoListado;
-                            break;
-                        }else{
-                            console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
-                            alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
-                        }
+                case "ADEREZOS":
+                case "3":
+                    var productoSolicitado = prompt("Ingrese el nombre del aderezo");
+                    productoSolicitado = productoSolicitado.toUpperCase();
+                    var productoListado = listaAderezos.find(producto => producto.nombre === productoSolicitado);
+                    if (productoListado !== undefined){
+                        productoSolicitado = productoListado;
+                        var cantidadSolicitada = parseInt(prompt("¿Cuántos quiere pedir?, Ingrese un valor numérico"));
+                        orden.agregarProducto(productoSolicitado, cantidadSolicitada);
+                        break;
+                    }else{
+                        console.log("El producto que solicitó no existe dentro del menu actual, porfavor selecccione otro.");
+                        alert("El producto que solicitó no existe dentro del menú actual, porfavor seleccione otro.");
+                        break;
                     }
                 default:
                     console.log("Porfavor seleccione una opción válida (por ejemplo 1 o Bebidas)");
                     alert("Porfavor seleccione una opción válida (por ejemplo 1 o Bebidas)");
-            }
-
-            // Ligero cambio para legibilidad (cuantos/cuantas)
-            if (productoSolicitado.tipo == "BEBIDA"){
-                let cantidadSolicitada = parseInt(prompt("¿Cuántas quiere?, Ingrese un valor numérico"));
-                orden.agregarProducto(productoSolicitado, cantidadSolicitada);
-            }else{
-                let cantidadSolicitada = parseInt(prompt("¿Cuántos quiere pedir?, Ingrese un valor numérico"));
-                orden.agregarProducto(productoSolicitado, cantidadSolicitada);
+                    break;
             }
 
             seguir = confirm("¿Desea continuar agregando productos a su orden?");
@@ -83,6 +80,8 @@ boton.addEventListener("click", ()=>{
 
         const factura = new Factura(orden.pedido);
         factura.calcularPrecio();
+
+        console.log(factura)
     }
     
     else{
@@ -135,11 +134,11 @@ class Pedido{
         }
     }
 
-    /* Elimina un producto del pedido */
-    eliminarProducto(producto){
-        if (producto in this.pedido)
-            this.pedido.pop(producto);
-    }
+    /* Elimina un producto del pedido PROXIMAMENTE SOLO EN CINES*/
+    // eliminarProducto(producto){
+    //     if (producto in this.pedido)
+    //         this.pedido.pop(producto);
+    // }
 }
 
 // Declaración de la clase Factura
@@ -150,8 +149,8 @@ class Factura{
 
     /* Calcula el precio y muestra la factura por consola */
     calcularPrecio(){
-        let importe = 0;
-        let descuento = 0;
+        var importe = 0;
+        var descuento = 0;
         const longitud = this.pedido.lenght;
         switch(longitud){
             case longitud > 5:
@@ -161,10 +160,15 @@ class Factura{
             default:
                 console.log("Sin descuento aplicable.");
         }
-        for (producto in this.pedido){
+        this.pedido.forEach(producto => {
             importe += producto.precio;
-        }
+        });
+
         importe -= importe * descuento;
-        console.log(`${this.pedido}\n`, ` Importe final: ${importe}\nDescuento aplicado: ${descuento}`);
+        
+        this.pedido.forEach(producto => {
+            console.log(`${producto.nombre} $${producto.precio}\n`)
+        });
+        console.log(`Descuento aplicado: ${descuento}\nImporte final: ${importe}`);
     }
 }
