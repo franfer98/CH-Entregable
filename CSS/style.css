@@ -26,3 +26,17 @@ button {
     padding: 5px;
     border-radius: 25dvb;
 }
+
+#factura {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.contador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}

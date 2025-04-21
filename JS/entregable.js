@@ -1,4 +1,9 @@
+// Utilizar arr.reduce() para mostrar en la factura la cantidad pedida de cada producto y el total a pagar.
+// Para esto utilizar el ejemplo de Math.max(acumulador, valorActual) para el total a pagar
+// y utilizar el ejemplo de conteo[fruta] = (conteo[fruta] || 0) + 1 para mostrar la cantidad pedida de cada producto.
 
+// (opcional) se puede indicar la cantidad que vale la sumatoria de cada producto en particular además del total
+// (opcional) se puede indicar el precio por unidad de cada producto listado en la factura
 
 // Se declara la constante boton y se le asigna una 
 // función flecha que se ejecutara al hacerle click.
