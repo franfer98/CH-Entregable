@@ -26,3 +26,27 @@ Este proyecto es una aplicación web sencilla e interactiva donde los usuarios p
  ┣ 📄 index.html
  ┣ 📄 script.js
  ┗ 📄 styles.css (opcional, o estilos dentro de <style> en el HTML)
+```
+## 🚀 Cómo ejecutarlo
+
+1. Cloná o descargá este repositorio.
+
+2. Abrí el archivo index.html en tu navegador favorito.
+
+3. Seleccioná los productos deseados con los botones "+" y "-".
+
+4. Presioná "Generar Pedido" y confirmá para ver la factura.
+
+## ✨ Tecnologías utilizadas
+
+- HTML5
+
+- JavaScript (vanilla)
+
+- CSS3 (para estilo visual)
+
+## 📦 Descuentos aplicados
+
+Cantidad de productos | Descuento
+2 a 5 productos | 5%
+Más de 5 productos | 10%
