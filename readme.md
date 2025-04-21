@@ -13,7 +13,6 @@ Este proyecto es una aplicación web sencilla e interactiva donde los usuarios p
   - Subtotales por producto
   - Descuento aplicado (si corresponde)
   - Total a pagar
-- Animación suave al mostrar la factura.
 - Estilo moderno y minimalista para una mejor experiencia visual.
 - Guardado de la factura en `localStorage`.
 
