@@ -23,8 +23,13 @@ Este proyecto es una aplicación web sencilla e interactiva donde los usuarios p
 ```plaintext
 📦 proyecto-pedidos
  ┣ 📄 index.html
- ┣ 📄 script.js
- ┗ 📄 styles.css (opcional, o estilos dentro de <style> en el HTML)
+ ┣ 📄 README.md
+ ┣ 📂 CSS
+ ┃ ┗ 📄 estilos.css
+ ┣ 📂 JS
+ ┃ ┗ 📄 app.js
+ ┗ 📂 Data
+   ┗ 📄 productos.json
 ```
 ## 🚀 Cómo ejecutarlo
 

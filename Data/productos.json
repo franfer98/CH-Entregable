@@ -1,0 +1,20 @@
+{
+    "Platillo": [
+      { "tipo": "Platillo", "nombre": "PIÑZZA", "precio": 40 },
+      { "tipo": "Platillo", "nombre": "HAMBURGUÉS", "precio": 30 },
+      { "tipo": "Platillo", "nombre": "PASTEL DU PAPA (SIN PAPA)", "precio": 55 },
+      { "tipo": "Platillo", "nombre": "SADANAPME", "precio": 25 }
+    ],
+    "Bebida": [
+      { "tipo": "Bebida", "nombre": "COCA-LOCA", "precio": 25 },
+      { "tipo": "Bebida", "nombre": "ES-PRAIT", "precio": 25 },
+      { "tipo": "Bebida", "nombre": "AGUA", "precio": 10 },
+      { "tipo": "Bebida", "nombre": "JUGO CON R", "precio": 15 }
+    ],
+    "Aderezo": [
+      { "tipo": "Aderezo", "nombre": "SABOR-A!", "precio": 5 },
+      { "tipo": "Aderezo", "nombre": "MOSTOZE", "precio": 5 },
+      { "tipo": "Aderezo", "nombre": "MAYONESO", "precio": 5 },
+      { "tipo": "Aderezo", "nombre": "ALSAS", "precio": 5 }
+    ]
+  }
