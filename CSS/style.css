@@ -1,42 +1,119 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2e2b28, #bbb7a7);
+    color: #eae7dc;
+    padding: 2rem;
     text-align: center;
-    background-color: rgb(245, 232, 214);
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #d6cfc4;
 }
 
 table {
     border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2rem;
+    width: 85%;
+    max-width: 800px;
+    background-color: #3e3c38;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    color: #f0f0eb;
 }
 
-th, td {
-    padding: 0.3rem;
-    border: 2px solid black;
-    border-radius: 50%;
+th {
+    background-color: #5a5953;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #cfc9be;
 }
-h1{
-    margin-top: 30px;
-    margin-bottom: 20px;
+
+td {
+    padding: 1rem;
+    border-top: 1px solid #4d4c48;
 }
 
 button {
-    margin-top: 30px;
-    padding: 5px;
-    border-radius: 25dvb;
+    padding: 0.6rem 1.4rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05);
 }
 
 #factura {
-    margin-top: 20px;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 8px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+    background-color: #2f2e2b;
+    border-left: 4px solid #4caf50;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    color: #ddd;
 }
 
-.contador{
+#factura h2 {
+    margin-bottom: 1rem;
+    color: #81c784;
+}
+
+#factura ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+#factura li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #44423f;
+}
+
+.contador {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.contador button {
+    background-color: #81c784;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    padding: 0;
+    color: #222;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contador button:hover {
+    background-color: #66bb6a;
+    transform: scale(1.1);
+}
+
+#app {
+    max-width: 1000px;
+    margin: 0 auto;
 }
